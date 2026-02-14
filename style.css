@@ -343,7 +343,7 @@ nav.container {
 
 .title-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 0.5rem;
 }
@@ -352,22 +352,6 @@ nav.container {
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1.2;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.link-icon {
-    width: 18px;
-    height: 18px;
-    color: var(--text-secondary);
-    transition: var(--transition-smooth);
-}
-
-.link-icon:hover {
-    color: var(--accent-color);
 }
 
 .project-summary {
