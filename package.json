@@ -1,0 +1,15 @@
+{
+  "name": "andrew-snow-portfolio",
+  "version": "1.0.0",
+  "description": "Professional Portfolio for Andrew Snow - Senior Software Engineer",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Snow | Senior Software Engineer – Real-Time & Simulation Systems</title>
+    <meta name="description"
+        content="Portfolio of Andrew Snow, a Senior Software Engineer specializing in real-time, multi-user simulation systems, Unity, and XR.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="container">
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-background" id="hero-canvas-container"></div>
+            <div class="container hero-content">
+                <h1 class="reveal">Andrew Snow</h1>
+                <h2 class="reveal">Senior Software Engineer</h2>
+                <h3 class="reveal">Real-Time & Simulation Systems</h3>
+                <p class="subtitle reveal">Architecting scalable interactive platforms, multi-user systems, and
+                    production-grade simulation software.</p>
+                <div class="cta-buttons reveal">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">About</h2>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>6+ years building and shipping real-time simulation systems. Core contributor and technical
+                            lead on commercial multi-user VR platforms.</p>
+                        <p>Specializing in modular architecture, multi-user synchronization, and performance
+                            optimization for complex interactive environments. I thrive at the intersection of systems
+                            engineering and spatial computing.</p>
+                        <p>Currently seeking a Senior Individual Contributor role in a stable engineering organization
+                            where I can apply my expertise in architecting high-fidelity simulations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Selected Projects</h2>
+                <div class="projects-grid" id="projects-container">
+                    <!-- Projects will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title reveal">Technical Expertise</h2>
+                <div class="skills-grid" id="skills-container">
+                    <!-- Skills will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Engineering Philosophy</h2>
+                <div class="philosophy-content reveal">
+                    <div class="philosophy-item">
+                        <h4>Design systems, not features</h4>
+                        <p>Focus on creating extensible architectures that accommodate growth and iteration.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>Optimize for scalability and maintainability</h4>
+                        <p>Code is read more often than it's written; prioritize clarity and sustainable performance.
+                        </p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>Balance performance with clarity</h4>
+                        <p>Real-time constraints are absolute, but clean abstractions prevent technical debt.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h4>Build for long-term reliability</h4>
+                        <p>Enterprise simulation requires production-grade stability and rigorous system design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-dark">
+            <div class="container text-center">
+                <h2 class="reveal">Get in Touch</h2>
+                <p class="reveal">Interested in discussing real-time systems or simulation architecture?</p>
+                <div class="contact-links reveal">
+                    <a href="mailto:andrew@example.com" class="contact-link">Email</a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="contact-link">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Andrew Snow. Professional Simulation Systems Engineering.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <video id="lightbox-video" controls style="display:none;"></video>
+            <div id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
