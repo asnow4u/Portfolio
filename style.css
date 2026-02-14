@@ -77,12 +77,50 @@ nav.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    min-height: 40px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+.header-actions {
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.social-icon {
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon:hover {
     color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline-sm {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    background: transparent;
+}
+
+.btn-outline-sm:hover {
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .nav-links {
