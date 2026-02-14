@@ -264,43 +264,11 @@ function initProjects() {
                         ${p.keyContributions.map(bullet => `<li>${bullet}</li>`).join('')}
                     </ul>
                 </div>
-                
-                <div class="tech-breakdown-v2">
-                    <div class="accordion-trigger-v2" onclick="toggleAccordionV2(this)">
-                        <span>Technical Deep Dive</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </div>
-                    <div class="accordion-content-v2">
-                        <div class="breakdown-grid">
-                            <div class="breakdown-item">
-                                <h5>Architecture</h5>
-                                <p>${p.breakdown.decisions}</p>
-                            </div>
-                            <div class="breakdown-item">
-                                <h5>Technical Challenges</h5>
-                                <p>${p.breakdown.challenges}</p>
-                            </div>
-                            <div class="breakdown-item">
-                                <h5>Performance</h5>
-                                <p>${p.breakdown.performance}</p>
-                            </div>
-                            <div class="breakdown-item">
-                                <h5>Scalability</h5>
-                                <p>${p.breakdown.scalability}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     `).join('');
 }
 
-// Global Accordion Handler for V2
-window.toggleAccordionV2 = (element) => {
-    const parent = element.parentElement;
-    parent.classList.toggle('active');
-};
 // Inject Skills
 function initSkills() {
     skillsContainer.innerHTML = skillCategories.map(cat => `
