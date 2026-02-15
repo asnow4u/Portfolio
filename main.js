@@ -6,7 +6,7 @@ const projects = [
         summary: 'A modular multi-user VR training platform supporting authentication, licensing, persistence, analytics, and real-time procedural simulation.',
         role: 'Senior Software Engineer | Core Systems',
         techStack: ['Unity', 'C#', 'OpenXR', 'Photon', 'Netcode'],
-        image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&q=80&w=1200',
+        image: 'src/Teo.png',
         video: null,
         keyContributions: [
             'Designed multi-user state synchronization architecture for high-fidelity training.',
@@ -27,7 +27,7 @@ const projects = [
         summary: 'A cross-platform AR application enabling spatial placement and interactive orbital simulation of the solar system.',
         role: 'Technical Lead | WebXR Systems',
         techStack: ['JavaScript', 'Three.js', 'WebXR API', 'Physics'],
-        image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1200',
+        image: 'src/solarAR.png',
         video: null,
         keyContributions: [
             'Architected the spatial anchoring strategy for stable Web-based AR placement.',
@@ -43,33 +43,12 @@ const projects = [
         }
     },
     {
-        id: 'social-chat',
-        title: 'Social Chat (Unity + Agora)',
-        summary: '3D multi-user spatial voice communication prototype supporting real-time presence and interaction.',
-        role: 'Senior Engineer | Networking & VOIP',
-        techStack: ['Unity', 'Agora SDK', 'Mirror', 'Spatial Audio'],
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200',
-        video: null,
-        keyContributions: [
-            'Integrated Agora Spatial Audio for immersive 3D voice communication.',
-            'Developed a low-latency avatar synchronization system using Mirror.',
-            'Built a modular presence system for tracking user activity and states.',
-            'Implemented dynamic audio occlusion based on environmental geometry.'
-        ],
-        breakdown: {
-            decisions: 'Leveraged Agora for high-quality, low-latency VOIP to focus internal resources on spatial interaction and networking logic.',
-            challenges: 'Synchronizing high-frequency avatar movements with spatial audio sources without introducing audible jitter.',
-            performance: 'Implemented interest management to reduce network traffic by only syncing relevant data to nearby players.',
-            scalability: 'Designed a relay-based architecture that scales to support high-density social environments.'
-        }
-    },
-    {
         id: 'bean-bag',
         title: 'VR Bean Bag Toss',
         summary: 'Physics-based VR experience featuring dynamic surfaces, wind simulation, and interactive level design.',
         role: 'Lead Physics Engineer',
         techStack: ['Unity', 'PhysX', 'XR Interaction Toolkit', 'C#'],
-        image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=1200',
+        image: 'src/CrazyCornholeVR.png',
         video: null,
         keyContributions: [
             'Authored custom physics solver for realistic bean bag deformation and drag.',
@@ -90,7 +69,7 @@ const projects = [
         summary: 'Mobile AR experience allowing users to place and track dynamic targets in real-world space.',
         role: 'Senior AR Developer',
         techStack: ['Unity', 'AR Foundation', 'ARCore/ARKit', 'Physics'],
-        image: 'https://images.unsplash.com/photo-1633177317976-3f9bc45e1d1d?auto=format&fit=crop&q=80&w=1200',
+        image: 'src/ARShootingGallery.jpg',
         video: null,
         keyContributions: [
             'Implemented robust plane detection and spatial anchoring using AR Foundation.',
@@ -103,27 +82,6 @@ const projects = [
             challenges: 'Maintaining consistent target tracking in environments with varied lighting and surface textures.',
             performance: 'Optimized mesh colliders and light estimation to minimize the impact on mobile battery life.',
             scalability: 'Created a modular level system that allows for easy deployment of new game modes and target types.'
-        }
-    },
-    {
-        id: 'lone-wolf',
-        title: 'Lone Wolf (Combat System)',
-        summary: 'Modular combat and exploration system inspired by physics-driven knockback mechanics and roguelike progression.',
-        role: 'Technical Architect',
-        techStack: ['Unity', 'C#', 'DOTween', 'State Machine'],
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200',
-        video: null,
-        keyContributions: [
-            'Designed a decoupled combat architecture using a custom state machine.',
-            'Built an extensible ability framework powered by ScriptableObjects.',
-            'Implemented a damage-based force calculation for impactful physics responses.',
-            'Developed production-grade character controller for complex terrain traversal.'
-        ],
-        breakdown: {
-            decisions: 'Developed a data-driven approach for abilities to allow non-coders to iterate on game balance efficiently.',
-            challenges: 'Ensuring smooth transitions between varied character states while maintaining consistent physics response.',
-            performance: 'Utilized DOTween for efficient UI and feedback animations to keep the main thread focused on gameplay logic.',
-            scalability: 'The system is designed to accommodate hundreds of unique abilities and enemies via interfaces and abstract classes.'
         }
     }
 ];
