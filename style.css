@@ -563,7 +563,8 @@ nav.container {
     /* Left defined */
     gap: 0.5rem;
     /* Less space between them */
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+    /* Reduced space from heading */
 }
 
 .contact-link {
@@ -574,7 +575,8 @@ nav.container {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
+    /* Removed horizontal padding for perfect alignment */
     border: 1px solid transparent;
     transition: var(--transition-smooth);
 }
