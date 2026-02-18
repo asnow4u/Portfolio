@@ -556,6 +556,41 @@ nav.container {
     color: #fff;
 }
 
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.contact-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-link .arrow-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.contact-link:hover .arrow-icon {
+    transform: translate(3px, -3px);
+}
+
 /* Animations */
 .reveal {
     opacity: 0;
