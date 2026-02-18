@@ -559,8 +559,10 @@ nav.container {
 .contact-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    align-items: flex-end;
+    /* Right defined */
+    gap: 0.5rem;
+    /* Less space between them */
     margin-top: 3rem;
 }
 
