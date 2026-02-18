@@ -48,9 +48,7 @@ section {
     padding: 100px 0;
 }
 
-.bg-alt {
-    background-color: var(--bg-alt);
-}
+
 
 .bg-dark {
     background-color: #050505;
@@ -514,21 +512,7 @@ nav.container {
     font-size: 1rem;
 }
 
-/* Philosophy */
-.philosophy-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-}
 
-.philosophy-item h4 {
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-
-.philosophy-item p {
-    color: var(--text-secondary);
-}
 
 /* Lightbox */
 .lightbox {
@@ -625,9 +609,7 @@ nav.container {
         display: none;
     }
 
-    .philosophy-content {
-        grid-template-columns: 1fr;
-    }
+
 
     .hero-content h1 {
         font-size: 2.8rem;
