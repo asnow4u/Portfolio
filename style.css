@@ -420,6 +420,8 @@ nav.container {
     color: var(--text-secondary);
     margin-bottom: 0.75rem;
     line-height: 1.5;
+    min-height: 4.5rem;
+    /* Ensures alignment across cards */
 }
 
 .role-label {

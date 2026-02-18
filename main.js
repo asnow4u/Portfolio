@@ -9,6 +9,7 @@ const projects = [
         image: 'src/Teo.png',
         video: null,
         keyContributions: [
+            'Performed performance profiling and optimization targeting standalone VR hardware constraints.',
             'Designed multi-user state synchronization architecture for high-fidelity training.',
             'Built persistent save-state and replay system for educational review.',
             'Implemented voxel-based procedural simulation for realistic surgical feedback.',
@@ -32,8 +33,9 @@ const projects = [
         keyContributions: [
             'Architected the spatial anchoring strategy for stable Web-based AR placement.',
             'Developed high-precision orbital physics engine using Three.js.',
-            'Optimized rendering pipeline for heterogeneous mobile browser hardware.',
-            'Implemented cross-platform input handling for touch and spatial controllers.'
+            'Built modular interaction framework for object selection, focus, and contextual inspection.',
+            'Implemented camera-relative UI system to maintain readability in spatial environments.',
+            'Optimized Three.js rendering pipeline for performance across varying browser and device capabilities.'
         ],
         breakdown: {
             decisions: 'Selected Three.js for its robust plugin ecosystem and mature WebGL handling, ensuring wide compatibility across mobile devices.',
@@ -44,17 +46,18 @@ const projects = [
     },
     {
         id: 'bean-bag',
-        title: 'VR Bean Bag Toss',
+        title: 'Crazy Cornhole',
         summary: 'Physics-based VR experience featuring dynamic surfaces, wind simulation, and interactive level design.',
         role: 'Lead Physics Engineer',
         techStack: ['Unity', 'PhysX', 'XR Interaction Toolkit', 'C#'],
         image: 'src/CrazyCornholeVR.png',
         video: null,
         keyContributions: [
-            'Authored custom physics solver for realistic bean bag deformation and drag.',
+            'Designed force application system translating controller velocity into realistic projectile motion.',
             'Developed dynamic surface friction system for varied gameplay surfaces.',
             'Built a wind simulation engine that affects projectile trajectories.',
-            'Implemented tactile feedback systems for spatial interactions.'
+            'Implemented tactile feedback systems for spatial interactions.',
+            'Optimized physics update cycles to maintain stable framerate on standalone VR hardware.'
         ],
         breakdown: {
             decisions: 'Extended Unity PhysX with custom force-based calculations to simulate the unique flight characteristics of soft-body projectiles.',
@@ -73,9 +76,10 @@ const projects = [
         video: null,
         keyContributions: [
             'Implemented robust plane detection and spatial anchoring using AR Foundation.',
-            'Designed high-performance projectile pooling system for mobile AR.',
-            'Built a calibration-free spatial setup for instant user engagement.',
-            'Integrated advanced haptic feedback for mobile devices.'
+            'Built projectile and collision detection system integrated with AR scene tracking.',
+            'Designed dynamic target movement system adapting to real-world spatial boundaries.',
+            'Developed real-time scoring and feedback system responsive to spatial hit events.',
+            'Built lightweight state management system for consistent gameplay flow.'
         ],
         breakdown: {
             decisions: 'Chosen AR Foundation to ensure a single codebase could target both iOS and Android with platform-specific optimizations.',
