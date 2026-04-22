@@ -7,7 +7,7 @@ const projects = [
         role: 'Senior Software Engineer | Core Systems',
         techStack: ['Unity', 'C#', 'OpenXR', 'Photon', 'Netcode'],
         image: 'src/Teo.png',
-        video: null,
+        video: 'src/TEO_Video.mp4',
         keyContributions: [
             'Performed performance profiling and optimization targeting standalone VR hardware constraints.',
             'Designed multi-user state synchronization architecture for high-fidelity training.',
@@ -45,48 +45,36 @@ const projects = [
         }
     },
     {
-        id: 'bean-bag',
-        title: 'Crazy Cornhole',
-        summary: 'Physics-based VR experience featuring dynamic surfaces, wind simulation, and interactive level design.',
-        role: 'Lead Physics Engineer',
-        techStack: ['Unity', 'PhysX', 'XR Interaction Toolkit', 'C#'],
-        image: 'src/CrazyCornholeVR.png',
-        video: null,
+        id: 'knockback-combat',
+        title: 'Knockback Combat System',
+        summary: 'Responsive melee combat system featuring physics driven knockback, weapon based variation, and animation-integrated attacks.',
+        role: 'Gameplay Engineer',
+        techStack: ['Unity', 'C#', 'Animation Systems', 'Physics'],
+        image: 'src/LoneWolf.png',
+        video: 'src/Combat_System_Video.mp4',
         keyContributions: [
-            'Designed force application system translating controller velocity into realistic projectile motion.',
-            'Developed dynamic surface friction system for varied gameplay surfaces.',
-            'Built a wind simulation engine that affects projectile trajectories.',
-            'Implemented tactile feedback systems for spatial interactions.',
-            'Optimized physics update cycles to maintain stable framerate on standalone VR hardware.'
-        ],
-        breakdown: {
-            decisions: 'Extended Unity PhysX with custom force-based calculations to simulate the unique flight characteristics of soft-body projectiles.',
-            challenges: 'Balancing the trade-off between physics accuracy and the strict timing requirements of VR (90Hz).',
-            performance: 'Used simplified collision geometry and optimized physics layers to keep CPU overhead minimal.',
-            scalability: 'Architected the project to support dynamic environment generation and varied physics presets.'
-        }
+            'Implemented damage scaled knockback inspired by platform fighters, creating dynamic and skill-based combat interactions.',
+            'Designed a flexible weapon system supporting varied stats, behaviors, and attack patterns.',
+            'Integrated combat logic with animation systems to ensure responsive and visually coherent attacks.',
+            'Developed player movement mechanics to support combat in open, vertical spaces.',
+            'Focused on game feel through iterative tuning of timing, impact feedback, and player control responsiveness.'
+        ]
     },
     {
-        id: 'carnival-ar',
-        title: 'Carnival AR Shooter',
-        summary: 'Mobile AR experience allowing users to place and track dynamic targets in real-world space.',
-        role: 'Senior AR Developer',
-        techStack: ['Unity', 'AR Foundation', 'ARCore/ARKit', 'Physics'],
-        image: 'src/ARShootingGallery.jpg',
-        video: null,
+        id: 'fire-simulation',
+        title: 'Fire Simulation System',
+        summary: 'Real-time fire propagation system that simulates heat transfer, fuel consumption, and dynamic ignition across interactive environments.',
+        role: 'Systems Engineer',
+        techStack: ['Unity', 'C#', 'System Design'],
+        image: 'src/Fire_Simulation.png',
+        video: 'src/Fire_Simulation_Video.mp4',
         keyContributions: [
-            'Implemented robust plane detection and spatial anchoring using AR Foundation.',
-            'Built projectile and collision detection system integrated with AR scene tracking.',
-            'Designed dynamic target movement system adapting to real-world spatial boundaries.',
-            'Developed real-time scoring and feedback system responsive to spatial hit events.',
-            'Built lightweight state management system for consistent gameplay flow.'
-        ],
-        breakdown: {
-            decisions: 'Chosen AR Foundation to ensure a single codebase could target both iOS and Android with platform-specific optimizations.',
-            challenges: 'Maintaining consistent target tracking in environments with varied lighting and surface textures.',
-            performance: 'Optimized mesh colliders and light estimation to minimize the impact on mobile battery life.',
-            scalability: 'Created a modular level system that allows for easy deployment of new game modes and target types.'
-        }
+            'Designed a heat-based propagation model where fire sources emit energy that drives ignition of nearby flammable objects',
+            'Implemented a fuel-driven lifecycle system where fires weaken and extinguish over time based on available resources',
+            'Linked simulation state to visual feedback by scaling particle effects and lighting intensity with remaining fuel',
+            'Built a modular flammability system allowing objects to respond dynamically to environmental heat and fire exposure',
+            'Created debug visualization tools to inspect heat distribution, ignition thresholds, and overall system behavior in real time'
+        ]
     }
 ];
 
@@ -118,12 +106,67 @@ const closeLightbox = document.querySelector('.close-lightbox');
 // Initialize Website
 document.addEventListener('DOMContentLoaded', () => {
     initProjects();
+    initMediaHover();
     initSkills();
     initScrollLogic();
     initRevealAnimations();
     initActiveNavTracking();
     initLightbox();
 });
+
+// Reusable Media Hover Logic Component
+function initMediaHover() {
+    const mediaElements = document.querySelectorAll('.project-media');
+    
+    mediaElements.forEach(mediaEl => {
+        const video = mediaEl.querySelector('.media-vid');
+        const img = mediaEl.querySelector('.media-img');
+        
+        if (!video) return;
+
+        // State trackers for debouncing and cleanup
+        let hoverEnterTimer = null;
+        let hoverExitTimer = null;
+        const hoverDelay = 300; // Delay before video plays
+        
+        mediaEl.addEventListener('mouseenter', () => {
+            // Cancel any pending exit actions if user re-enters quickly
+            if (hoverEnterTimer) clearTimeout(hoverEnterTimer);
+            if (hoverExitTimer) clearTimeout(hoverExitTimer);
+            
+            // Start the hover delay timer. If the user leaves before this completes,
+            // the timer is cleared and the video never plays.
+            hoverEnterTimer = setTimeout(() => {
+                video.play().then(() => {
+                    // Only perform the crossfade if the video successfully starts playing
+                    img.style.opacity = '0';
+                    video.style.opacity = '1';
+                }).catch(err => {
+                    console.warn("Video autoplay prevented or interrupted", err);
+                });
+            }, hoverDelay);
+        });
+        
+        mediaEl.addEventListener('mouseleave', () => {
+            // Cancel the play trigger if user left before the delay finished
+            if (hoverEnterTimer) {
+                clearTimeout(hoverEnterTimer);
+                hoverEnterTimer = null;
+            }
+            if (hoverExitTimer) clearTimeout(hoverExitTimer);
+            
+            // Immediately start fading image back in and video out
+            img.style.opacity = '0.85'; // original image opacity
+            video.style.opacity = '0';
+            
+            // Wait for the fade transition to complete before freezing the video frame
+            hoverExitTimer = setTimeout(() => {
+                video.pause();
+                video.currentTime = 0;
+            }, 400); // 400ms matches the --transition-smooth duration in CSS
+        });
+    });
+}
 
 // Active Nav Tracking
 function initActiveNavTracking() {
@@ -169,7 +212,8 @@ function initProjects() {
         <div class="project-card reveal">
             <div class="project-media" onclick="openLightbox('${p.image}', '${p.title}')">
                 <div class="media-container">
-                    <img src="${p.image}" alt="${p.title}" loading="lazy">
+                    <img src="${p.image}" alt="${p.title}" loading="lazy" class="media-img">
+                    ${p.video ? `<video src="${p.video}" preload="metadata" muted loop playsinline class="media-vid"></video>` : ''}
                 </div>
             </div>
             <div class="project-content">
