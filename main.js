@@ -100,6 +100,7 @@ const skillsContainer = document.getElementById('skills-container');
 const header = document.getElementById('header');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxCaption = document.getElementById('lightbox-caption');
 const closeLightbox = document.querySelector('.close-lightbox');
 
@@ -210,7 +211,7 @@ function initActiveNavTracking() {
 function initProjects() {
     projectsContainer.innerHTML = projects.map(p => `
         <div class="project-card reveal">
-            <div class="project-media" onclick="openLightbox('${p.image}', '${p.title}')">
+            <div class="project-media" onclick="openLightbox('${p.image}', '${p.video || ''}', '${p.title}')">
                 <div class="media-container">
                     <img src="${p.image}" alt="${p.title}" loading="lazy" class="media-img">
                     ${p.video ? `<video src="${p.video}" preload="metadata" muted loop playsinline class="media-vid"></video>` : ''}
@@ -313,22 +314,37 @@ function initRevealAnimations() {
 
 // Lightbox Logic
 function initLightbox() {
-    closeLightbox.addEventListener('click', () => {
+    const closeLightboxHandler = () => {
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
-    });
+        lightboxVideo.pause();
+        lightboxVideo.currentTime = 0;
+    };
+
+    closeLightbox.addEventListener('click', closeLightboxHandler);
 
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeLightboxHandler();
         }
     });
 }
 
-window.openLightbox = (src, caption) => {
-    lightboxImg.src = src;
+window.openLightbox = (imgSrc, videoSrc, caption) => {
     lightboxCaption.textContent = caption;
+
+    if (videoSrc) {
+        lightboxImg.style.display = 'none';
+        lightboxVideo.style.display = 'block';
+        lightboxVideo.src = videoSrc;
+        lightboxVideo.play().catch(e => console.warn(e));
+    } else {
+        lightboxVideo.style.display = 'none';
+        lightboxVideo.pause();
+        lightboxImg.style.display = 'block';
+        lightboxImg.src = imgSrc;
+    }
+
     lightbox.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 };
